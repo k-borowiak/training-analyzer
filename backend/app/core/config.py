@@ -5,8 +5,6 @@ class Settings(BaseSettings):
     """
     Centralne miejsce na konfigurację aplikacji.
 
-    - w DEV możesz używać .env
-    - w Docker/Prod konfiguruj przez ENV
     """
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
