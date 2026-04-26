@@ -14,10 +14,10 @@ The architecture is provider-agnostic, starting with Strava as the initial data 
 
 The goal of this project is not only to store training data, but to build a complete processing pipeline:
 
-* ingest raw activity data
-* compute structured performance metrics
-* analyze trends over time
-* generate contextual insights using AI
+- ingest raw activity data
+- compute structured performance metrics
+- analyze trends over time
+- generate contextual insights using AI
 
 ---
 
@@ -27,24 +27,25 @@ The system is built using a modular, event-driven architecture:
 
 ### 1. Data Ingestion Layer
 
-* OAuth2 authentication with external fitness platforms
-* Incremental synchronization of training data
-* Historical backfill support (limited window)
-* Raw data storage without early transformation
+- OAuth2 authentication with external fitness platforms
+- Incremental synchronization of training data
+- Historical backfill support (limited window)
+- Raw data storage without early transformation
 
 ### 2. Processing Layer
 
-* Computation of training metrics (load, intensity, trends)
-* Rolling window analysis (short-term and long-term views)
-* Asynchronous background processing via Redis Queue (RQ)
-* Priority-based job execution using separate queues (HIGH / LOW)
+- Computation of training metrics (load, intensity, trends)
+- Rolling window analysis (short-term and long-term views)
+- Asynchronous background processing via Redis Queue (RQ)
+- Priority-based job execution using separate queues (HIGH / LOW)
+- Worker-based execution model decoupled from API layer
 
 ### 3. Intelligence Layer (AI)
 
-* AI-powered interpretation of processed training data
-* Cost-aware usage of external AI providers
-* Rate limiting and caching of generated insights
-* Provider abstraction (e.g. Gemini, Groq)
+- AI-powered interpretation of processed training data
+- Cost-aware usage of external AI providers
+- Rate limiting and caching of generated insights
+- Provider abstraction (e.g. Gemini, Groq)
 
 ---
 
@@ -63,23 +64,23 @@ The system is built using a modular, event-driven architecture:
 
 ## Key Design Principles
 
-* Separation of ingestion, processing, and analysis layers
-* Asynchronous background processing via Redis Queue (RQ)
-* Priority-based task execution (onboarding vs backfill)
-* Rate limit awareness for external APIs
-* AI as an interpretation layer, not a core computation engine
-* Cache-first approach for expensive operations
+- Separation of ingestion, processing, and analysis layers
+- Asynchronous background processing via Redis Queue (RQ)
+- Priority-based task execution (onboarding vs backfill via separate queues)
+- Explicit handling of external API rate limits (Strava)
+- AI as an interpretation layer, not a core computation engine
+- Cache-first approach for expensive operations
 
 ---
 
 ## Technology Stack
 
-* FastAPI (API layer)
-* PostgreSQL (data storage)
-* Redis (queue backend)
-* RQ (background job processing)
-* External fitness APIs (e.g. Strava)
-* External AI providers (Gemini, Groq or others)
+- FastAPI (API layer)
+- PostgreSQL (data storage)
+- Redis (queue backend)
+- RQ (background job processing)
+- External fitness APIs (e.g. Strava)
+- External AI providers (Gemini, Groq or others)
 
 ---
 
@@ -89,11 +90,11 @@ The AI layer is used to generate contextual insights from structured training da
 
 Key characteristics:
 
-* AI does not process raw data directly
-* Inputs are pre-aggregated metrics and summaries
-* Requests are rate-limited to control costs
-* Results are cached to avoid redundant calls
-* Provider abstraction allows switching AI models
+- AI does not process raw data directly
+- Inputs are pre-aggregated metrics and summaries
+- Requests are rate-limited to control costs
+- Results are cached to avoid redundant calls
+- Provider abstraction allows switching AI models
 
 ---
 
@@ -103,4 +104,8 @@ This project is currently in early design and implementation phase.
 
 The primary focus is to establish a clean and scalable architecture before expanding functionality.
 
-Architectural decisions are documented using ADRs in `docs/architecture/`.
+---
+
+## Architecture Decisions
+
+Key architectural decisions are documented using ADRs in `docs/architecture/`.
