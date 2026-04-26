@@ -36,7 +36,8 @@ The system is built using a modular, event-driven architecture:
 
 * Computation of training metrics (load, intensity, trends)
 * Rolling window analysis (short-term and long-term views)
-* Background job processing with priority handling (HIGH / LOW)
+* Asynchronous background processing via Redis Queue (RQ)
+* Priority-based job execution using separate queues (HIGH / LOW)
 
 ### 3. Intelligence Layer (AI)
 
@@ -63,7 +64,7 @@ The system is built using a modular, event-driven architecture:
 ## Key Design Principles
 
 * Separation of ingestion, processing, and analysis layers
-* Asynchronous background processing via job system
+* Asynchronous background processing via Redis Queue (RQ)
 * Priority-based task execution (onboarding vs backfill)
 * Rate limit awareness for external APIs
 * AI as an interpretation layer, not a core computation engine
@@ -75,7 +76,8 @@ The system is built using a modular, event-driven architecture:
 
 * FastAPI (API layer)
 * PostgreSQL (data storage)
-* Background worker system (job processing)
+* Redis (queue backend)
+* RQ (background job processing)
 * External fitness APIs (e.g. Strava)
 * External AI providers (Gemini, Groq or others)
 
@@ -101,3 +103,4 @@ This project is currently in early design and implementation phase.
 
 The primary focus is to establish a clean and scalable architecture before expanding functionality.
 
+Architectural decisions are documented using ADRs in `docs/architecture/`.
