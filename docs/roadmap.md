@@ -42,12 +42,12 @@ The next step is to implement the first end-to-end working flow.
 
 **Goal:** prepare a runnable local environment
 
-- [ ] Initialize FastAPI application
+- [x] Initialize FastAPI application
 - [ ] Add PostgreSQL integration
 - [ ] Configure environment variables
-- [ ] Set up Docker and docker-compose
+- [x] Set up Docker and docker-compose
 - [ ] Add basic logging
-- [ ] Run API and PostgreSQL together in local development
+- [x] Run API and PostgreSQL together in local development
 
 ---
 
