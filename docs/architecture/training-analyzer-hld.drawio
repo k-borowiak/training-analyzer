@@ -1,0 +1,65 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Strona-1" id="nJ6ZXZOQpNLxWoFB_Wqm">
+    <mxGraphModel dx="1288" dy="703" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="vargK65ysEemAn2Yw2WR-8" edge="1" parent="1" source="vargK65ysEemAn2Yw2WR-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#FFFFFF;" target="vargK65ysEemAn2Yw2WR-7" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vargK65ysEemAn2Yw2WR-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#FFFFFF;" value="User" vertex="1">
+          <mxGeometry height="60" width="120" x="354" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vargK65ysEemAn2Yw2WR-12" edge="1" parent="1" source="vargK65ysEemAn2Yw2WR-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#FFFFFF;" target="vargK65ysEemAn2Yw2WR-11" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vargK65ysEemAn2Yw2WR-25" edge="1" parent="1" source="vargK65ysEemAn2Yw2WR-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#FFFFFF;" target="vargK65ysEemAn2Yw2WR-19" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="260" y="146" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vargK65ysEemAn2Yw2WR-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#FFFFFF;" value="Fast API" vertex="1">
+          <mxGeometry height="60" width="120" x="354" y="116" as="geometry" />
+        </mxCell>
+        <mxCell id="vargK65ysEemAn2Yw2WR-14" edge="1" parent="1" source="vargK65ysEemAn2Yw2WR-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#FFFFFF;" target="vargK65ysEemAn2Yw2WR-13" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vargK65ysEemAn2Yw2WR-11" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#FFFFFF;" value="Job Queue&lt;div&gt;(async)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="354" y="221" as="geometry" />
+        </mxCell>
+        <mxCell id="vargK65ysEemAn2Yw2WR-16" edge="1" parent="1" source="vargK65ysEemAn2Yw2WR-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#FFFFFF;" target="vargK65ysEemAn2Yw2WR-15" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vargK65ysEemAn2Yw2WR-13" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#FFFFFF;" value="Worker" vertex="1">
+          <mxGeometry height="60" width="120" x="354" y="317" as="geometry" />
+        </mxCell>
+        <mxCell id="vargK65ysEemAn2Yw2WR-18" edge="1" parent="1" source="vargK65ysEemAn2Yw2WR-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#FFFFFF;" target="vargK65ysEemAn2Yw2WR-17" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vargK65ysEemAn2Yw2WR-15" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#FFFFFF;" value="PostgreSQL" vertex="1">
+          <mxGeometry height="60" width="120" x="354" y="419" as="geometry" />
+        </mxCell>
+        <mxCell id="vargK65ysEemAn2Yw2WR-24" edge="1" parent="1" source="vargK65ysEemAn2Yw2WR-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#FFFFFF;" target="vargK65ysEemAn2Yw2WR-23" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vargK65ysEemAn2Yw2WR-17" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#FFFFFF;" value="AI Service" vertex="1">
+          <mxGeometry height="60" width="120" x="354" y="518" as="geometry" />
+        </mxCell>
+        <mxCell id="vargK65ysEemAn2Yw2WR-36" edge="1" parent="1" source="vargK65ysEemAn2Yw2WR-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#FFFFFF;" target="vargK65ysEemAn2Yw2WR-35" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vargK65ysEemAn2Yw2WR-19" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#FFFFFF;" value="Strava&lt;br&gt;(OAuth + API)" vertex="1">
+          <mxGeometry height="60" width="120" x="200" y="116" as="geometry" />
+        </mxCell>
+        <mxCell id="vargK65ysEemAn2Yw2WR-23" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#FFFFFF;" value="AI Providers" vertex="1">
+          <mxGeometry height="60" width="120" x="354" y="618" as="geometry" />
+        </mxCell>
+        <mxCell id="vargK65ysEemAn2Yw2WR-35" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#FFFFFF;" value="Strava API" vertex="1">
+          <mxGeometry height="60" width="120" x="200" y="221" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
