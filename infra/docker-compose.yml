@@ -7,7 +7,13 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - DATABASE_URL=postgresql://postgres:postgres@db:5432/training
+      - DATABASE_URL=postgresql+psycopg2://postgres:postgres@db:5432/training
+      - ENV=dev
+      # Strava OAuth (uzupełnisz w Phase 2)
+      - STRAVA_CLIENT_ID=
+      - STRAVA_CLIENT_SECRET=
+      - STRAVA_REDIRECT_URI=http://localhost:8000/v1/auth/strava/callback
+      - SESSION_SECRET=change-me
     depends_on:
       - db
       - redis
