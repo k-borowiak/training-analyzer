@@ -16,7 +16,7 @@ User → Login via Strava (OAuth)
 → Worker fetches activities from Strava API
 → Store raw activities in PostgreSQL
 → Process activities into metrics
-→ (optional) Generate AI insights
+→ Generate AI insights
 
 ---
 
