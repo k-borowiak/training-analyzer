@@ -31,8 +31,8 @@ The next step is to implement the first end-to-end working flow.
 
 - [x] Define high-level architecture
 - [x] Identify core components (API, queue, worker, DB, AI service)
-- [ ] Decide on queue technology (Redis + RQ / Celery)
-- [ ] Define MVP data model (users, tokens, activities)
+- [x] Decide on queue technology: **Redis + RQ**
+- [x] Define MVP data model (users, tokens, activities)
 - [x] Add architecture diagram
 - [x] Add roadmap and documentation
 
