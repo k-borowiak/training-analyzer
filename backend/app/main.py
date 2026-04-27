@@ -1,4 +1,5 @@
 from fastapi import FastAPI, Depends
+from .strava_routes import router as strava_api_router
 from .auth_strava import router as strava_router
 from .deps import get_current_user
 from .models import User
@@ -14,6 +15,7 @@ def on_startup():
     print("STARTUP: tabele gotowe ✅")
 
 app.include_router(strava_router)
+app.include_router(strava_api_router)
 
 @app.get("/")
 def home():

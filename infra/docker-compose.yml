@@ -1,21 +1,11 @@
-version: "3.9"
-
 services:
   api:
     build:
       context: ../backend
     ports:
       - "8000:8000"
-    environment:
-      - DATABASE_URL=postgresql+psycopg2://postgres:postgres@db:5432/training
-      - ENV=dev
-
-      # Strava OAuth
-      - STRAVA_CLIENT_ID=
-      - STRAVA_CLIENT_SECRET=
-      - STRAVA_REDIRECT_URI=http://localhost:8000/auth/strava/callback
-
-      - SESSION_SECRET=
+    env_file:
+      - ./.env
     depends_on:
       db:
         condition: service_healthy
@@ -29,7 +19,7 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: training
     ports:
-      - "127.0.0.1:5432:5432"   
+      - "127.0.0.1:5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
     healthcheck:
@@ -41,7 +31,7 @@ services:
   redis:
     image: redis:7
     ports:
-      - "127.0.0.1:6379:6379"  
+      - "127.0.0.1:6379:6379"
 
 volumes:
   pgdata:
