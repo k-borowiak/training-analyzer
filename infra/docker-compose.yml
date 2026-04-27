@@ -11,8 +11,8 @@ services:
       - ENV=dev
 
       # Strava OAuth
-      - STRAVA_CLIENT_ID=231320
-      - STRAVA_CLIENT_SECRET=f0757ca174bf1c30d1a83259b9e8f280bc8c4379
+      - STRAVA_CLIENT_ID=
+      - STRAVA_CLIENT_SECRET=
       - STRAVA_REDIRECT_URI=http://localhost:8000/auth/strava/callback
 
       - SESSION_SECRET=a0bb5540cac093fbaf58c46258605d63a601585d
