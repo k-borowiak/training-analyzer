@@ -9,14 +9,18 @@ services:
     environment:
       - DATABASE_URL=postgresql+psycopg2://postgres:postgres@db:5432/training
       - ENV=dev
-      # Strava OAuth (uzupełnisz w Phase 2)
-      - STRAVA_CLIENT_ID=
-      - STRAVA_CLIENT_SECRET=
-      - STRAVA_REDIRECT_URI=http://localhost:8000/v1/auth/strava/callback
-      - SESSION_SECRET=change-me
+
+      # Strava OAuth
+      - STRAVA_CLIENT_ID=231320
+      - STRAVA_CLIENT_SECRET=f0757ca174bf1c30d1a83259b9e8f280bc8c4379
+      - STRAVA_REDIRECT_URI=http://localhost:8000/auth/strava/callback
+
+      - SESSION_SECRET=a0bb5540cac093fbaf58c46258605d63a601585d
     depends_on:
-      - db
-      - redis
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_started
 
   db:
     image: postgres:15
@@ -25,14 +29,19 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: training
     ports:
-      - "5432:5432"
+      - "127.0.0.1:5432:5432"   
     volumes:
       - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d training"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
 
   redis:
     image: redis:7
     ports:
-      - "6379:6379"
+      - "127.0.0.1:6379:6379"  
 
 volumes:
   pgdata:
