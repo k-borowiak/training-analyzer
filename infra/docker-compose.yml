@@ -15,7 +15,7 @@ services:
       - STRAVA_CLIENT_SECRET=
       - STRAVA_REDIRECT_URI=http://localhost:8000/auth/strava/callback
 
-      - SESSION_SECRET=a0bb5540cac093fbaf58c46258605d63a601585d
+      - SESSION_SECRET=
     depends_on:
       db:
         condition: service_healthy
