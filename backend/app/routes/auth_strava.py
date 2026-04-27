@@ -6,7 +6,7 @@ from fastapi import APIRouter, Depends, HTTPException, Request
 from fastapi.responses import RedirectResponse
 from sqlalchemy.orm import Session as DbSession
 
-from .config import (
+from ..core.config import (
     STRAVA_CLIENT_ID,
     STRAVA_CLIENT_SECRET,
     STRAVA_REDIRECT_URI,
@@ -14,8 +14,8 @@ from .config import (
     APP_REDIRECT_AFTER_LOGIN,
     COOKIE_SECURE,
 )
-from .db import get_db
-from .models import User, StravaToken, Session as UserSession
+from ..db import get_db
+from ..models import User, StravaToken, Session as UserSession
 
 
 router = APIRouter(prefix="/auth/strava", tags=["auth"])
@@ -89,12 +89,12 @@ def strava_callback(
     expires_at = token_data["expires_at"]
     scope = token_data.get("scope")
 
-    # 3) find-or-create user
+    # 3) znajdź/stwórz usera
     user = db.query(User).filter(User.strava_athlete_id == athlete_id).one_or_none()
     if not user:
         user = User(strava_athlete_id=athlete_id)
         db.add(user)
-        db.flush()  # dostajemy user.id bez commita
+        db.flush()  # dostaje user.id bez commita
 
     # 4) upsert tokenów
     st = db.query(StravaToken).filter(StravaToken.user_id == user.id).one_or_none()

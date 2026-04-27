@@ -1,29 +1,26 @@
-from pydantic_settings import BaseSettings, SettingsConfigDict
+import os
+from dotenv import load_dotenv
 
+# .env może się przydać
+load_dotenv()
 
-class Settings(BaseSettings):
-    """
-     miejsce na konfigurację aplikacji.
+def _get_bool(name: str, default: bool = False) -> bool:
+    v = os.getenv(name)
+    if v is None:
+        return default
+    return v.strip().lower() in ("1", "true", "yes", "y", "on")
 
-    - w DEV .env
-    - w Prod ENV
-    """
-    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
+DATABASE_URL = os.getenv("DATABASE_URL")
+if not DATABASE_URL:
+    raise RuntimeError("DATABASE_URL is not set")
 
-    # --- Core ---
-    ENV: str = "dev"
+ENV = os.getenv("ENV", "dev")
+COOKIE_SECURE = _get_bool("COOKIE_SECURE", default=False)
 
-    # --- Database ---
-    DATABASE_URL: str = "postgresql+psycopg2://postgres:postgres@db:5432/postgres"
+STRAVA_CLIENT_ID = os.getenv("STRAVA_CLIENT_ID", "")
+STRAVA_CLIENT_SECRET = os.getenv("STRAVA_CLIENT_SECRET", "")
+STRAVA_REDIRECT_URI = os.getenv("STRAVA_REDIRECT_URI", "http://localhost:8000/auth/strava/callback")
+STRAVA_SCOPE = os.getenv("STRAVA_SCOPE", "read,activity:read_all")
 
-    # --- Strava OAuth (Phase 2) ---
-    STRAVA_CLIENT_ID: str | None = None
-    STRAVA_CLIENT_SECRET: str | None = None
-    STRAVA_REDIRECT_URI: str | None = None
-    STRAVA_SCOPES: str = "read,activity:read_all"  # zmienić później
-
-    # --- App session/security ---
-    SESSION_SECRET: str = "change-me"  # w prod ENV
-
-
-settings = Settings()
+APP_REDIRECT_AFTER_LOGIN = os.getenv("APP_REDIRECT_AFTER_LOGIN", "/")
+SESSION_SECRET = os.getenv("SESSION_SECRET", "change-me")

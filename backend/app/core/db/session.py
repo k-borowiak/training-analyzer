@@ -1,23 +1,19 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from app.core.config import settings
+from ..config import DATABASE_URL
 
-
-# -----------------------
-# Engine (połączenie z DB)
-# -----------------------
 engine = create_engine(
-    settings.DATABASE_URL,
-    pool_pre_ping=True,   # sprawdza czy connection żyje
-    pool_recycle=3600     # resetuje stare połączenia
+    DATABASE_URL,
+    echo=False,
+    pool_pre_ping=True,
 )
 
-# -----------------------
-# Session factory
-# -----------------------
-SessionLocal = sessionmaker(
-    autocommit=False,
-    autoflush=False,
-    bind=engine
-)
+SessionLocal = sessionmaker(bind=engine, autocommit=False, autoflush=False)
+
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
