@@ -1,21 +1,16 @@
 from fastapi import APIRouter, Depends
-from sqlalchemy.orm import Session
 from sqlalchemy import text
-import logging
+from sqlalchemy.orm import Session as DbSession
 
-from app.core.db.deps import get_db
+from ...core.db.session import get_db
 
-router = APIRouter()
-logger = logging.getLogger(__name__)
+router = APIRouter(prefix="/health", tags=["health"])
 
-
-@router.get("/health")
+@router.get("")
 def health():
-    logger.info("Health check called")
     return {"status": "ok"}
 
-
-@router.get("/db-health")
-def db_health(db: Session = Depends(get_db)):
-    result = db.execute(text("SELECT 1")).scalar()
-    return {"db": "ok", "result": result}
+@router.get("/db")
+def health_db(db: DbSession = Depends(get_db)):
+    db.execute(text("SELECT 1"))
+    return {"status": "ok", "db": "ok"}

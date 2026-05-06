@@ -43,10 +43,10 @@ The next step is to implement the first end-to-end working flow.
 **Goal:** prepare a runnable local environment
 
 - [x] Initialize FastAPI application
-- [ ] Add PostgreSQL integration
-- [ ] Configure environment variables
+- [x] Add PostgreSQL integration
+- [x] Configure environment variables
 - [x] Set up Docker and docker-compose
-- [ ] Add basic logging
+- [x] Add basic logging
 - [x] Run API and PostgreSQL together in local development
 
 ---
@@ -55,10 +55,10 @@ The next step is to implement the first end-to-end working flow.
 
 **Goal:** connect a user account with Strava
 
-- [ ] Implement OAuth redirect endpoint
-- [ ] Handle callback and token exchange
+- [x] Implement OAuth redirect endpoint
+- [x] Handle callback and token exchange
 - [ ] Store access and refresh tokens in PostgreSQL
-- [ ] Create user model
+- [x] Create user model
 - [ ] Implement token refresh logic
 
 **Result:** user is connected and tokens are persisted
