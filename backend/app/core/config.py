@@ -2,10 +2,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    """
-    Centralne miejsce na konfigurację aplikacji.
 
-    """
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
     # --- Core ---
@@ -18,10 +15,10 @@ class Settings(BaseSettings):
     STRAVA_CLIENT_ID: str | None = None
     STRAVA_CLIENT_SECRET: str | None = None
     STRAVA_REDIRECT_URI: str | None = None
-    STRAVA_SCOPES: str = "read,activity:read_all"  # możesz zmienić później
+    STRAVA_SCOPES: str = "read,activity:read_all"  
 
     # --- App session/security ---
-    SESSION_SECRET: str = "change-me"  # w prod ZAWSZE z ENV
+    SESSION_SECRET: str = "change-me"  
 
 
 settings = Settings()
